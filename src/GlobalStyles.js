@@ -22,5 +22,13 @@ export default createGlobalStyle`
         
     } 
 
+    .hidden {
+        display: none; 
+    }
+
+    .visible {
+        display: block;
+    }
+
     
 `
