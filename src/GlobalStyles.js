@@ -34,6 +34,5 @@ export default createGlobalStyle`
     .visible {
         display: block;
     }
-
     
 `
