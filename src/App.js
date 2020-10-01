@@ -3,6 +3,7 @@ import Header from './components/Header'
 import { Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Galerie from './pages/Galerie'
+import Contact from './pages/Contact'
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       <Switch>
         <Route exact path="/" render={() => <Home />} />
         <Route exact path="/galerie" render={() => <Galerie />} />
+        <Route exact path="/kontakt" render={() => <Contact />} />
       </Switch>
-      <img src="/images/121.jpg" width="100%" />
     </div>
   )
 }

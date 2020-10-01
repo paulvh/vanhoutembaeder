@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import Navigation from './Navigation'
@@ -28,6 +27,7 @@ export default function Header() {
 
 const StyledWrapper = styled.div`
   position: relative;
+  box-shadow: 0px 4px 4px #999;
 `
 
 const StyledHeader = styled.header`

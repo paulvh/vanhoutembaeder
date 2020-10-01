@@ -12,6 +12,9 @@ export default function Navigation({ setIsMenuVisible }) {
         <StyledLi>
           <NavLink to="/galerie">Galerie</NavLink>
         </StyledLi>
+        <StyledLi>
+          <NavLink to="/kontakt">Kontakt</NavLink>
+        </StyledLi>
       </StyledUl>
     </StyledNavigation>
   )
