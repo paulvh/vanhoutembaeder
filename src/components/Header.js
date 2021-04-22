@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <StyledWrapper>
       <StyledHeader>
-        <div>Logo</div>
+        <Image src="/images/logo/Striffel-vanHoutem-Baeder.png" />
         <StyledIcon
           icon={isMenuVisible ? faTimes : faBars}
           onClick={toggleNav}
@@ -34,6 +34,7 @@ const StyledHeader = styled.header`
   display: flex;
   padding: 0.5rem;
   justify-content: space-between;
+  align-items: center;
   height: 52px;
   color: var(--lightgrey);
   background: var(--darkgrey);
@@ -41,4 +42,10 @@ const StyledHeader = styled.header`
 
 const StyledIcon = styled(FontAwesomeIcon)`
   font-size: 1.8rem;
+  margin: 0 10px;
+`
+const Image = styled.img`
+  width: 100px;
+  height: 20px;
+  margin: 0 10px;
 `
