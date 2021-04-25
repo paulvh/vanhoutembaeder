@@ -6,11 +6,13 @@ export default function Signup() {
   const passwordRef = useRef()
   const confirmPasswordRef = useRef()
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
   const { signup } = useAuth()
 
   return (
     <div>
-      <form>
+      {error && alert(error)}
+      <form onSubmit={handleSubmit}>
         <label>
           E-Mail:
           <input type="email" ref={emailRef} required />
@@ -24,22 +26,25 @@ export default function Signup() {
           <input type="password" ref={confirmPasswordRef} required />
         </label>
 
-        <button onClick={handleSubmit} type="submit">
+        <button disabled={loading} type="submit">
           Sign Up
         </button>
       </form>
     </div>
   )
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
     if (passwordRef.current.value !== confirmPasswordRef.current.value) {
-      setError('passwords do not match')
+      return setError('passwords do not match')
     }
     try {
-      signup(emailRef.current.value, passwordRef.current.value)
+      setError('')
+      setLoading(true)
+      await signup(emailRef.current.value, passwordRef.current.value)
     } catch {
       setError('Failed to create an Account')
     }
+    setLoading(false)
   }
 }
