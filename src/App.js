@@ -6,19 +6,25 @@ import Galerie from './pages/Galerie'
 import Contact from './pages/Contact'
 import { AuthProvider } from './contexts/AuthContext'
 import Signup from './pages/Signup'
+import Login from './pages/Login'
+import Admin from './pages/Admin'
+import PrivateRoute from './pages/PrivateRoute'
 
 function App() {
   return (
     <div>
       <Header />
-      <Switch>
-        <Route exact path="/" render={() => <Home />} />
-        <Route exact path="/galerie" render={() => <Galerie />} />
-        <Route exact path="/kontakt" render={() => <Contact />} />
-        <AuthProvider>
-          <Route exact path="/signup" render={() => <Signup />} />
-        </AuthProvider>
-      </Switch>
+      <AuthProvider>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/galerie" component={Galerie} />
+          <Route path="/kontakt" component={Contact} />
+
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
+          <PrivateRoute path="/admin" component={Admin} />
+        </Switch>
+      </AuthProvider>
     </div>
   )
 }
