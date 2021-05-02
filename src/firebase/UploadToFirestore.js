@@ -1,6 +1,6 @@
-import { db } from '../firebase/firebase'
+import { db } from './firebase'
 
-export default function UploadToFirestore(values, user, imageUrl = '') {
+export default function UploadToFirestore(values, imageUrl = '') {
   db.collection('content').add({
     date: values.date,
     news: values.news,

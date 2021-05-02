@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import Navigation from './Navigation'
+import logo from '../icons/Striffel-vanHoutem-Baeder.png'
 
 export default function Header() {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
   return (
     <StyledWrapper>
       <StyledHeader>
-        <Image src="/images/logo/Striffel-vanHoutem-Baeder.png" />
+        <Image src={logo} />
         <StyledIcon
           icon={isMenuVisible ? faTimes : faBars}
           onClick={toggleNav}
