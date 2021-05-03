@@ -20,15 +20,27 @@ export default function Admin() {
   const { currentUser, logout } = useAuth()
   const history = useHistory()
   return (
-    <div>
+    <StyledAdminContainer>
       {error && alert(error)}
-      Admin
-      {currentUser.email}
-      <form onSubmit={handleSubmit}>
-        <input type="date" ref={dateRef} />
-        <textarea type="text" ref={newsRef} />
-        <input type="width" ref={widthRef} />
-        <input type="height" ref={heightRef} />
+      <h2>Admin</h2>
+      <StyledForm onSubmit={handleSubmit}>
+        <StyledLabel>
+          <div>Datum:</div>
+          <StyledInput type="date" ref={dateRef} />
+        </StyledLabel>
+        <StyledLabel>
+          <div>Text:</div>
+          <StyledTextarea type="text" ref={newsRef} />
+        </StyledLabel>
+        <StyledLabel>
+          <div>Bildbreite (Verhältnis):</div>
+          <StyledInput type="width" ref={widthRef} />
+        </StyledLabel>
+        <StyledLabel>
+          <div>Bildhöhe (Verhältnis):</div>
+          <StyledInput type="height" ref={heightRef} />
+        </StyledLabel>
+
         {loading ? (
           <div>{/* <SpinningLogoIcon /> */}</div>
         ) : (
@@ -42,16 +54,16 @@ export default function Admin() {
           </div>
         )}
         <StyledImageUpload>
+          {imageUrl ? 'Bild ändern' : 'Bild auswählen'}
           <input type="file" onChange={uploadImageForPreview} required />
         </StyledImageUpload>
 
-        {imageUrl ? 'Bild ändern' : 'Bild auswählen'}
         <button type="submit" disabled={loading}>
           Upload
         </button>
-      </form>
+      </StyledForm>
       <button onClick={handleLogout}>Log out</button>
-    </div>
+    </StyledAdminContainer>
   )
 
   async function handleSubmit(event) {
@@ -101,6 +113,36 @@ export default function Admin() {
   }
 }
 
+const StyledAdminContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+`
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  gap: 20px;
+`
+const StyledInput = styled.input`
+  min-width: 300px;
+  max-width: 600px;
+`
+
+const StyledTextarea = styled.textarea`
+  min-width: 300px;
+  max-width: 600px;
+  min-height: 50px;
+  max-height: 100px;
+`
+const StyledLabel = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const StyledImagePreview = styled.img`
   height: 120px;
   width: 120px;
@@ -111,7 +153,6 @@ const StyledImagePreview = styled.img`
 `
 
 const StyledImageUpload = styled.label`
-  margin-bottom: 15px;
   border-radius: 5px;
   color: var(--denim);
   font-size: 12px;
@@ -119,8 +160,8 @@ const StyledImageUpload = styled.label`
   text-transform: uppercase;
   letter-spacing: 1.2px;
   text-align: center;
-  background-color: var(--white);
-  border: 1px solid var(--denim);
+  background-color: var(--lightgrey);
+  border: 1px solid var(--font-color);
   padding: 6px 12px;
   display: block;
   cursor: pointer;

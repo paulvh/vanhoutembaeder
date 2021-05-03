@@ -13,7 +13,7 @@ export default createGlobalStyle`
     }
     
     body {
-        background: var(--lightgrey);
+        background: var(--white);
         height: 100vh;
         margin: 0;
         color: var(--font-color);
