@@ -8,9 +8,13 @@ import { AuthProvider } from './contexts/AuthContext'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import Admin from './pages/Admin'
+import News from './pages/News'
 import PrivateRoute from './pages/PrivateRoute'
+import DownloadFromFirestore from './firebase/DownloadFromfirestore'
 
 function App() {
+  const [firestoreData] = DownloadFromFirestore()
+
   return (
     <div>
       <Header />
@@ -19,6 +23,9 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/galerie" component={Galerie} />
           <Route path="/kontakt" component={Contact} />
+          <Route path="/neuigkeiten">
+            <News firestoreData={firestoreData} />
+          </Route>
 
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />

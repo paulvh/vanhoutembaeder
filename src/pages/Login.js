@@ -12,7 +12,7 @@ export default function Login() {
   const history = useHistory()
 
   return (
-    <div>
+    <main>
       {error && alert(error)}
       <h2>Log In</h2>
       <StyledForm onSubmit={handleSubmit}>
@@ -31,7 +31,7 @@ export default function Login() {
           Log In
         </button>
       </StyledForm>
-    </div>
+    </main>
   )
 
   async function handleSubmit(event) {

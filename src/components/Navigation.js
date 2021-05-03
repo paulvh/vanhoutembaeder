@@ -10,6 +10,9 @@ export default function Navigation({ setIsMenuVisible }) {
           <NavLink to="/">Home</NavLink>
         </StyledLi>
         <StyledLi>
+          <NavLink to="/neuigkeiten">Neuigkeiten</NavLink>
+        </StyledLi>
+        <StyledLi>
           <NavLink to="/galerie">Galerie</NavLink>
         </StyledLi>
         <StyledLi>

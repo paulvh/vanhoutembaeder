@@ -17,7 +17,7 @@ export default function Admin() {
   const [imageUrl, setImageUrl] = useState('')
 
   const [error, setError] = useState('')
-  const { currentUser, logout } = useAuth()
+  const { logout } = useAuth()
   const history = useHistory()
   return (
     <StyledAdminContainer>
@@ -55,7 +55,7 @@ export default function Admin() {
         )}
         <StyledImageUpload>
           {imageUrl ? 'Bild ändern' : 'Bild auswählen'}
-          <input type="file" onChange={uploadImageForPreview} required />
+          <input type="file" onChange={uploadImageForPreview} />
         </StyledImageUpload>
 
         <button type="submit" disabled={loading}>
@@ -113,7 +113,7 @@ export default function Admin() {
   }
 }
 
-const StyledAdminContainer = styled.div`
+const StyledAdminContainer = styled.main`
   display: flex;
   flex-direction: column;
   gap: 20px;
