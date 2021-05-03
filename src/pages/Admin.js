@@ -8,6 +8,7 @@ import styled from 'styled-components'
 import redcross from '../icons/redcross.svg'
 
 export default function Admin() {
+  const formRef = useRef()
   const dateRef = useRef()
   const newsRef = useRef()
   const widthRef = useRef()
@@ -23,7 +24,7 @@ export default function Admin() {
     <StyledAdminContainer>
       {error && alert(error)}
       <h2>Admin</h2>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit} ref={formRef}>
         <StyledLabel>
           <div>Datum:</div>
           <StyledInput type="date" ref={dateRef} />
@@ -85,6 +86,7 @@ export default function Admin() {
       setError('Upload failed')
     }
     setLoading(false)
+    formRef.current.reset()
   }
 
   async function handleLogout() {

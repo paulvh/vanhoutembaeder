@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 
 export default function Signup() {
+  const formRef = useRef()
   const emailRef = useRef()
   const passwordRef = useRef()
   const confirmPasswordRef = useRef()
@@ -12,7 +13,7 @@ export default function Signup() {
   return (
     <div>
       {error && alert(error)}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} ref={formRef}>
         <label>
           E-Mail:
           <input type="email" ref={emailRef} required />
@@ -46,5 +47,6 @@ export default function Signup() {
       setError('Failed to create an Account')
     }
     setLoading(false)
+    formRef.current.reset()
   }
 }
