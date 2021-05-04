@@ -18,13 +18,13 @@ export default function Login() {
       <StyledForm onSubmit={handleSubmit}>
         <StyledLabel>
           <div>E-Mail:</div>
-          E-Mail:
+
           <StyledInput type="email" ref={emailRef} required />
         </StyledLabel>
         <StyledLabel>
           <div>Passwort:</div>
-          Passwort:
-          <inpStyledInputt type="password" ref={passwordRef} required />
+
+          <StyledInput type="password" ref={passwordRef} required />
         </StyledLabel>
 
         <button disabled={loading} type="submit">
